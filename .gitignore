@@ -1,5 +1,6 @@
 tools/
 build/
 obj/
+packages/
 *.suo
 *.docstates

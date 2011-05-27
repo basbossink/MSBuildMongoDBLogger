@@ -15,18 +15,18 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with MSBuildMongoDBLogger.  If not, see <http://www.gnu.org/licenses/>.
 
-#requires 2.0
+#requires -version 2.0
 #>
 $toolsdir = Join-Path (Get-Location) tools
 $nugetdir = Join-Path $toolsdir NuGet
 $nuget = Join-Path $nugetdir NuGet.exe 
 
 # run auto updating nuget bootstrapper
-& $nuget
-$env:PATH += ";$(nugetdir)"
+& $nuget update
+$env:PATH += ";$($nugetdir)"
 
-& $nuget psake -o $toolsdir -x
-& $nuget Chewie -o $toolsdir -x
+& $nuget i psake -o $toolsdir -x
+& $nuget i Chewie -o $toolsdir -x
 
 $chewiedir = Join-Path $toolsdir chewie
 Import-Module (Join-Path $chewiedir chewie.psm1)
