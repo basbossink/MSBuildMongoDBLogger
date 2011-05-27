@@ -1,5 +1,5 @@
-tools/*
-build/*
+tools/
+build/
 obj/
 *.suo
 *.docstates
