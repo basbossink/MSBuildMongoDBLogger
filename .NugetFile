@@ -1,0 +1,3 @@
+install_to 'packages'
+chew 'xunit'
+chew 'MongoDB.Driver'
