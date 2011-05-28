@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MSBuildMongoDBLogger</id>
+    <version>0.0.0.0</version>
+    <authors>Bas Bossink</authors>
+    <owners>Bas Bossink</owners>
+    <licenseUrl>http://www.gnu.org/licenses/gpl.html</licenseUrl>
+    <projectUrl>https://github.com/basbossink/MSBuildMongoDBLogger</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A logger implementation that uses MongoDB as it's back-end.</description>
+    <tags>MSBuild MongoDB Logging Logger</tags>
+  </metadata>
+</package>
