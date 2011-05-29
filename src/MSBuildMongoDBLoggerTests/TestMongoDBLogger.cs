@@ -13,19 +13,33 @@
 ///
 /// You should have received a copy of the GNU General Public License
 /// along with MSBuildMongoDBLogger.  If not, see <http://www.gnu.org/licenses/>.
-using System.Reflection;
+namespace MSBuildMongoDBLogger.Test
+{
+    using NUnit.Framework;
+    using Moq;
+    using Microsoft.Build.Framework;
+    using System.Linq;
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-[assembly: AssemblyVersion("0.0.0.1")]
-[assembly: AssemblyFileVersion("0.0.0.1")]
-[assembly: AssemblyConfiguration("Debug")]
-[assembly: AssemblyProduct("MSBuildMongoDBLogger")]
-[assembly: AssemblyCopyright("Copyright © 2011 Bas Bossink <bas.bossink@gmail.com")]
+    [TestFixture]
+    public class TestMongoDBLogger
+    {
+        [Test]
+        public void TestEventSubscription()
+        {
+            var source = new Mock<IEventSource>();
+            var sut = new MongoDBLogger();
+            sut.Initialize(source.Object);
+            source.Raise(s => s.ProjectStarted += null, 
+                new ProjectStartedEventArgs(
+                    "test started",
+                    "fred",
+                    "wilma.proj",
+                    "BuildAll",
+                    new string[] { "aoeu", "ouu"},
+                    new string[] { "barney.cs", "rubbles.cs"}));
+
+
+        }
+
+    }
+}

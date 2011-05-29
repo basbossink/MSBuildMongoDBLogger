@@ -13,19 +13,28 @@
 ///
 /// You should have received a copy of the GNU General Public License
 /// along with MSBuildMongoDBLogger.  If not, see <http://www.gnu.org/licenses/>.
-using System.Reflection;
 
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-[assembly: AssemblyVersion("0.0.0.1")]
-[assembly: AssemblyFileVersion("0.0.0.1")]
-[assembly: AssemblyConfiguration("Debug")]
-[assembly: AssemblyProduct("MSBuildMongoDBLogger")]
-[assembly: AssemblyCopyright("Copyright © 2011 Bas Bossink <bas.bossink@gmail.com")]
+namespace MSBuildMongoDBLogger
+{
+    using Microsoft.Build.Utilities;
+    using Microsoft.Build.Framework;
+    using MongoDB.Driver;
+    using MongoDB.Driver.Connections;
+
+    public class MongoDBLogger : Logger
+    {
+
+        public override void Initialize(Microsoft.Build.Framework.IEventSource eventSource)
+        {
+            var extractor = new ParameterExtractor();
+            extractor.Extract(Parameters);
+            var mongo = string.IsNullOrEmpty(extractor.ConnectionString) ? new Mongo() : new Mongo(extractor.ConnectionString);
+            eventSource.ProjectStarted += ProjectStarted;
+        }
+        
+        private void ProjectStarted(object sender, ProjectStartedEventArgs e)
+        {
+
+        }
+    }
+}

@@ -1,3 +1,4 @@
 install_to 'packages'
-chew 'xunit'
+chew 'NUnit'
 chew 'MongoDB.Driver'
+chew 'Moq'
