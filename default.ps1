@@ -3,8 +3,8 @@ properties {
 	$buildOutputDir = Join-Path $rootDir build 
 	$srcDir = Join-Path $rootDir src
 	$toolsDir = Join-Path $rootDir tools
-	$packagesDir = Join-Path $srcDir packages
-	$nunitDir = Join-Path $packagesDir NUnit.2.5.10.11092
+	$packagesDir = Join-Path $rootDir packages
+	$nunitDir = Join-Path $packagesDir NUnit
 	$nunitExe = Join-Path (Join-Path $nunitDir tools) nunit-console.exe
 	$solutionFilePath = Join-Path $srcDir MSBuildMongoDBLogger.sln
 	$assemblyInfoFilePath = Join-path $srcDir SharedAssemblyInfo.cs

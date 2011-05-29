@@ -45,7 +45,7 @@
     <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="Microsoft.Build.Utilities.v4.0" />
     <Reference Include="MongoDB.Driver, Version=1.0.3744.30075, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MongoDB.Driver.1.0.3744.30075\lib\net40\MongoDB.Driver.dll</HintPath>
+      <HintPath>..\..\packages\MongoDB.Driver\lib\net40\MongoDB.Driver.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
