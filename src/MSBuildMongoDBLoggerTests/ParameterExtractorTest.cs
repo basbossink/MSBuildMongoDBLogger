@@ -49,7 +49,7 @@ namespace MSBuildMongoDBLogger.Test
             AssertExtraction("connection=mongodb://localhost/fred?safe=true", 
                 "mongodb://localhost/fred?safe=true", provider);
         }
-
+           
         [Test]
         public void TestDatabaseName()
         {
